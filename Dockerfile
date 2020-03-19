@@ -2,6 +2,14 @@ FROM cloudbees/java-build-tools
 
 USER root
 
+#Install rbenv
+RUN \
+  apt update && apt-get install -y libssl-dev libreadline-dev zlib1g-dev && \
+  git clone https://github.com/rbenv/ruby-build.git && \
+  PREFIX=/usr/local ./ruby-build/install.sh && \
+  ruby-build -v 2.3.1 /usr/local && \
+  gem install bundler -v 1.17.3 --no-ri --no-rdoc
+
 ARG JENKINS_REMOTING_VERSION=3.35
 
 # See https://github.com/jenkinsci/docker-slave/blob/master/Dockerfile#L31
