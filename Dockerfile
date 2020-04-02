@@ -25,4 +25,9 @@ RUN \
   /home/jenkins/rbenv/bin/ruby-build -v 2.3.1 /home/jenkins/rbenv && \
   /home/jenkins/rbenv/bin/gem install bundler -v 1.17.3 --no-ri --no-rdoc
 
+#Install aplo
+COPY Gemfile /home/jenkins/
+RUN \
+  /home/jenkins/rbenv/bin/bundle install
+
 ENTRYPOINT ["/opt/bin/entry_point.sh", "/usr/local/bin/jenkins-slave"]
