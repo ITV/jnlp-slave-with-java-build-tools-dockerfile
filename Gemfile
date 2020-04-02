@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
-gem "aplo",
- :git => 'git@github.com:ITV/aplo',
- :ref => 'v4.4.0'
+gem 'aplo',
+  git: 'https://GITHUB_API_KEY:x-oauth-basic@github.com/ITV/aplo.git',
+  ref: 'APLO_VERSION'
