@@ -26,14 +26,13 @@ RUN \
   /home/jenkins/rbenv/bin/gem install bundler -v 1.17.3 --no-ri --no-rdoc
 
 #Install aplo
-COPY Gemfile /home/jenkins/
 ENV PATH=/home/jenkins/rbenv/shims:/home/jenkins/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
-  bundle install
-  
+  RUN git clone https://x-token-auth:GITHUB_API_KEY@github.com/ITV/aplo.git -b APLO_VERSION
+
 USER root
 RUN \
-  ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bundler/gems/aplo-b2e9ef93b295/exe/aplo /usr/local/bin/aplo
+  ln -fsn /home/jenkins/aplo/exe/aplo /usr/local/bin/aplo
 
 USER jenkins
 
