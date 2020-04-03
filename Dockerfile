@@ -29,7 +29,8 @@ RUN \
 COPY Gemfile /home/jenkins/
 ENV PATH=/home/jenkins/rbenv/shims:/home/jenkins/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
-  bundle install
+  bundle install && /
+  bundle exec rake install
 
 USER root
 RUN \
