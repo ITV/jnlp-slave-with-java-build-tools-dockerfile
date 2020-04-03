@@ -35,5 +35,7 @@ USER root
 RUN \
   ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bin/aplo /usr/local/bin/aplo
 
+USER jenkins
+
 
 ENTRYPOINT ["/opt/bin/entry_point.sh", "/usr/local/bin/jenkins-slave"]
