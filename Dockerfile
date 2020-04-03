@@ -27,12 +27,13 @@ RUN \
 
 #Install aplo
 COPY Gemfile /home/jenkins/
+ENV PATH=/home/jenkins/rbenv/shims:/home/jenkins/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
-  /home/jenkins/rbenv/bin/bundle install
+  bundle install
 
 USER root
-ENV PATH=${HOME}/rbenv/shims:${HOME}/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
   ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bin/aplo /usr/local/bin/aplo
+
 
 ENTRYPOINT ["/opt/bin/entry_point.sh", "/usr/local/bin/jenkins-slave"]
