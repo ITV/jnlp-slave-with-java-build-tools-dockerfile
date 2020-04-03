@@ -28,7 +28,7 @@ RUN \
 #Install aplo
 ENV PATH=/home/jenkins/rbenv/shims:/home/jenkins/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
-  RUN git clone https://x-token-auth:GITHUB_API_KEY@github.com/ITV/aplo.git -b APLO_VERSION
+  git clone https://x-token-auth:GITHUB_API_KEY@github.com/ITV/aplo.git -b APLO_VERSION
 
 USER root
 RUN \
