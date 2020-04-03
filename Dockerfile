@@ -29,9 +29,8 @@ RUN \
 COPY Gemfile /home/jenkins/
 ENV PATH=/home/jenkins/rbenv/shims:/home/jenkins/rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 RUN \
-  bundle install && \
-  bundle exec rake install
-
+  bundle install
+  
 USER root
 RUN \
   ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bundler/gems/aplo-b2e9ef93b295/exe/aplo /usr/local/bin/aplo
