@@ -33,7 +33,7 @@ RUN \
 
 USER root
 RUN \
-  ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bin/aplo /usr/local/bin/aplo
+  ln -fsn /home/jenkins/rbenv/lib/ruby/gems/2.3.0/bundler/gems/aplo-b2e9ef93b295/exe/aplo /usr/local/bin/aplo
 
 USER jenkins
 
